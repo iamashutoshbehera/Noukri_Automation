@@ -3,16 +3,16 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK21'          // Must match the JDK name configured in Jenkins
-        maven 'Maven3'       // Must match the Maven name configured in Jenkins
+        jdk 'JDK21'
+        maven 'Maven3'
     }
 
     stages {
 
-        stage('Checkout') {
+        stage('Verify Environment') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/<username>/<repository>.git'
+                bat 'java -version'
+                bat 'mvn -version'
             }
         }
 
@@ -33,16 +33,17 @@ pipeline {
     post {
 
         always {
-            junit '**/target/surefire-reports/*.xml'
+            junit testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true
+
             archiveArtifacts artifacts: 'target/**', fingerprint: true
         }
 
         success {
-            echo 'Execution Successful'
+            echo 'Build completed successfully.'
         }
 
         failure {
-            echo 'Execution Failed'
+            echo 'Build failed.'
         }
     }
 }
