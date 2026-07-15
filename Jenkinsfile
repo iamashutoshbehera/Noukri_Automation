@@ -3,8 +3,8 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK21'
-        maven 'Maven3'
+        jdk 'JDK21'          // Must match the JDK name configured in Jenkins
+        maven 'Maven3'       // Must match the Maven name configured in Jenkins
     }
 
     stages {
@@ -34,7 +34,7 @@ pipeline {
 
         always {
             junit '**/target/surefire-reports/*.xml'
-            archiveArtifacts artifacts: 'target/**'
+            archiveArtifacts artifacts: 'target/**', fingerprint: true
         }
 
         success {
