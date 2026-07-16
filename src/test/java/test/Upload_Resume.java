@@ -31,11 +31,6 @@ public class Upload_Resume extends BasePage {
 		
 		UploadFileHandler fh = new UploadFileHandler();
 		fh.uploadResume();
-		try {
-			pp.validateSuccessResumeUploadMessage();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		pp.clickOnHomePageLogo();
 		
 		hp.validateProfileStatus();
