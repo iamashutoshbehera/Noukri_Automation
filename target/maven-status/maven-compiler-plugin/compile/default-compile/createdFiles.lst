@@ -1,0 +1,9 @@
+base\BasePage.class
+base\TestContext.class
+utils\UploadFileHandler.class
+utils\ConfigReader.class
+utils\SeleniumActions.class
+pageEvents\HomePage.class
+pageEvents\ProfilePage.class
+pageEvents\LoginPage.class
+utils\KeyboardActions.class

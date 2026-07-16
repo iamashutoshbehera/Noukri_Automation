@@ -15,6 +15,12 @@ public class SeleniumActions {
 		WebDriverWait wait = new WebDriverWait(TestContext.getDriver(), Duration.ofSeconds(config.getDefaultPageLoadTime()));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
+	
+	public static void waitTillElementToClickable(WebElement element) {
+		ConfigReader config = new ConfigReader();
+		WebDriverWait wait = new WebDriverWait(TestContext.getDriver(), Duration.ofSeconds(config.getDefaultPageLoadTime()));
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
 	public static void performClick(WebElement elemenet) {
 		elemenet.click();
 	}
@@ -27,6 +33,5 @@ public class SeleniumActions {
 	public static String getVisibleText(WebElement element) {
 		return element.getText();
 	}
-	
 	
 }

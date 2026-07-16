@@ -54,6 +54,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                         <suiteXmlFile>upload_resume_test.xml</suiteXmlFile>
+                        <suiteXmlFile>update_resume_header.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
 
